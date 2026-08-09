@@ -1,4 +1,3 @@
-
 # Game-Design-Konzept: Marienkäfer-Lebenszyklus
 
 Ein 2D-Plattformer über den Lebenszyklus eines Marienkäfers – von der Geburt über Familie und Verlust bis zur Rettung der nächsten Generation.
@@ -11,139 +10,201 @@ Der Spieler begleitet einen Marienkäfer durch sein Leben. Jeder Akt steht für 
 
 **Thematischer Kern:** Leben, Verlust und das Weiterreichen des Lebens an die nächste Generation.
 
-**Fähigkeiten-Progression:** Akt 1 nur Laufen/Springen → Akt 2 Gleiten (Batman-Stil, kein echtes Fliegen) → Akt 3 echtes/freies Fliegen, freigeschaltet durch den Tod des Partners ("beflügelt durch den Tod").
+**Fähigkeiten-Progression:** In Akt 1 wachsen die Bewegungs-Fähigkeiten mit – Laufen/Springen → am Teich **Gleiten** → im Unkraut **Fliegen**. Ab da bleibt Fliegen erhalten, aber die **Flugausdauer wächst** über das ganze Spiel (Akt 1 nur kurze Flüge → Akt 3 langes, freies Fliegen). Kampf kommt ab Akt 2 dazu (Nahkampf → Fernkampf).
 
 ---
 
 ## Akt 1 – Der Garten (Schlüpfen bis Paarung)
 
 **Lebensphase:** Geburt / frisch geschlüpft
-**Gameplay-Loop:** Klassisches Jump'n'Run
+**Gameplay-Loop:** Klassisches Jump'n'Run (kampffrei)
 
 - Start: Du schlüpfst bei den **Eiern**.
-- Level führt von den **Gräsern** Richtung eines **Teichs mit Seerosen** (über die Seerosen springen).
-- Weiter zu großen Pflanzen: **Löwenzahn, Gänseblümchen** und anderen Pflanzen – nach oben kletternd/springend.
+- Level führt von den **Gräsern** Richtung eines **Teichs mit Seerosen** (über die Seerosen springen). Hier wird **Gleiten** freigeschaltet.
+- Weiter zu großen Pflanzen: **Löwenzahn, Gänseblümchen** und anderen Pflanzen – nach oben kletternd/springend. Im **Unkraut** wird **Fliegen** freigeschaltet (anfangs nur kurze Flüge).
 - Am Ende hoch zu einer **schicken Blume**, wo er den **Partner** findet.
-- Ende: Beide **fliegen los** (Cutscene + neue Fähigkeit angedeutet) → Übergang zu Akt 2.
+- Ende: Beide **fliegen los** (Cutscene) → Übergang zu Akt 2.
 
-**Fähigkeit:** Laufen, Klettern, Springen. Noch kein Fliegen.
+**Fähigkeit:** Laufen, Klettern, Springen → **Gleiten** (ab Teich) → **Fliegen** (ab Unkraut, kurze Ausdauer). **Kein Kampf** – ruhiger Einstieg.
 
-**Collectable – Schwebender Pollen:** Pollen treiben/schweben in der Luft. Man muss den richtigen Moment zum Springen/Klettern finden, um sie zu erreichen – kleine Bewegungs-Puzzles, die sich natürlich in den Aufstieg einfügen.
+**Collectable – Schwebender Pollen:** Pollen treiben/schweben in der Luft. Man muss den richtigen Moment zum Springen/Klettern finden, um sie zu erreichen – kleine Bewegungs-Puzzles.
 
 **Struktur:** Linearer Aufstieg durch eine Gartenwelt, jede Pflanzenzone eine kleine Plattform-Herausforderung.
 
 ---
 
-## Akt 2 – Das Feld (Familie & Verlust)
+## Akt 2 – Das Feld (Familie, Kampf-Einführung & Verlust)
 
 **Lebensphase:** Erwachsen / Familie
-**Gameplay-Loop:** Jagen / Sammeln + Suche
+**Gameplay-Loop:** Jagen / Sammeln + erster Kampf + Suche
 
 - Zu Beginn hat das Paar bereits die **Eier gelegt**.
-- **Jagd nach Blattläusen** und anderer Beute: Sie **rennen weg** (Verfolgung) oder funktionieren als **Collectables**.
+- M wird losgeschickt zu jagen und bekommt vom **Partner eine Waffe** → geht damit auf **Blattlaus-Jagd**.
+- **Blattläuse / Larven wehren sich nicht** – reine Jagd/Sammeln (sie rennen weg, Verfolgung + Collectable).
+- Auf dem Weg: erste **Ameise**, die sich wehrt → hier **lernt M kämpfen** (Nahkampf-Tutorial an einem echten Gegner).
+- **Rückweg:** Die Ameise kehrt zurück → ab hier ist Kampf etabliert.
 - Rückkehr zum Nest: **Familie ist weg** (das Feld wurde gemäht).
 - Der Käfer geht auf die **Suche**.
+- **Boss – Ameisenkönigin:** Zum Abschluss von Akt 2 der erste Boss. Im Grunde eine Ameise mit **mehr Leben und mehr Schaden**, unterstützt von **5 Ameisen**. (Sonst keine besonderen Mechaniken – ein "großer Bruder" des Tutorial-Gegners.)
 - **Finale des Akts:** Am **Rande des Feldes** findet er den **sterbenden Partner**, der ihm sagt, dass die **Eier im Wald** sind → Übergang zu Akt 3.
 
-**Fähigkeit:** **Gleiten** (wie Batman mit dem Cape – kein echtes Fliegen: man verliert langsam an Höhe, kann Sprünge verlängern und sanft heruntergleiten, nur vorwärts/abwärts).
+**Fähigkeit:** Fliegen (aus Akt 1) mit **wachsender Flugausdauer** + **Nahkampf** mit der Waffe vom Partner.
+
+**Kampf-Idee:** Nahkampf am Boden + **Flug-Ramme** (im Flug in Gegner reinstoßen).
 
 **Ton-Hinweis:** Der sterbende Partner ist der emotionale Wendepunkt. Je nach Zielgruppe eher angedeutet als drastisch inszenieren.
 
 ---
 
-## Akt 3 – Der Wald (Suche & Spinnen-Boss)
+## Akt 3 – Der Wald (Suche, Fernkampf & Spinnen-Boss)
 
 **Lebensphase:** Kampf um die nächste Generation
-**Gameplay-Loop:** Erkunden / Spurensuche → Bossfight
+**Gameplay-Loop:** Erkunden / Spurensuche → Kampf → Bossfight
 
-- Im Wald kann man **richtig fliegen** (freies Fliegen in alle Richtungen) – freigeschaltet durch den **Tod des Partners** ("beflügelt durch den Tod"). Akt 2 war nur Gleiten.
+- Im Wald hat man die **volle Flugausdauer** – langes, freies Fliegen in alle Richtungen (in Akt 1 nur kurze Flüge, jetzt am stärksten).
+- **Fernkampf/Sporen** wird hier verfügbar – **freigeschaltet durch die Larven-Sammlung aus Akt 2**.
 - Man sucht **bei Bäumen und anderen Objekten nach Spuren**.
 - Man **findet eine Spur**, die zu einem **Spinnennetz** mit den Eiern darin führt.
-- **Bossfight:** Das **Netz auflösen**, indem man **darum herumfliegt** (Ankerpunkte/Fäden lösen), während die **Spinne es verteidigt** – aufpassen und ausweichen.
+- **Bossfight:** Das **Netz auflösen**, indem man **darum herumfliegt** (Ankerpunkte/Fäden lösen bzw. angreifen), während die **Spinne es verteidigt** – ausweichen und aktiv angreifen.
 - Ist das Netz gelöst: **Eier aus der Luft retten** (fliegend auffangen/bergen).
 
-**Fähigkeit:** Echtes Fliegen als Kern-Mechanik (freie Bewegung in der Luft).
+**Fähigkeit:** Volle Flugausdauer (langes freies Fliegen) + **Fernkampf (Sporen)** als Kern-Mechanik.
 
-**Offene Frage – Spurensuche-Gameplay:** Was genau macht man beim Suchen nach Spuren? Ideen zum Entscheiden:
+**Offene Frage – Spurensuche-Gameplay:** Was genau macht man beim Suchen nach Spuren? Ideen:
 - Fährten-Verfolgung (leuchtende Fäden/Rückstände von Objekt zu Objekt) – Favorit, passt zum Fliegen
-- Umgebung absuchen / interagieren (Objekte untersuchen, Hinweise freilegen)
+- Umgebung absuchen / interagieren
 - Geräusch- oder Geruchsspur (näher = stärkeres Signal)
-- Kleine Umgebungsrätsel, die den Weg zum Netz freigeben
+- Kleine Umgebungsrätsel
 
-### Bossfight – Die Spinne
+### Der Feuerwanzen-Laden (Sporen-Verzauberung)
 
-- **Ziel:** Das Netz auflösen (nicht die Spinne direkt besiegen).
-- **Mechanik:** Um das Netz herumfliegen, Fäden/Ankerpunkte nacheinander lösen.
-- **Gegenwehr:** Die Spinne verteidigt das Netz – ihren Angriffen ausweichen, Timing.
-- **Finale:** Netz gelöst → Eier fallen/lösen sich → **aus der Luft retten**.
+- Im Wald gibt es einen **Laden**, betrieben von einer **Feuerwanze**.
+- Hier werden die **Sporen mit Pollen "verzaubert"** → verschiedene Effekte:
+  - **Gift** (Schaden über Zeit)
+  - **Verlangsamung**
+  - **Lähmung**
+  - **Rüstungsbruch / weniger gegnerischer Schaden**
+  - **Erblinden**
+- Larven = Freischaltung des Fernkampfs, Pollen = Upgrade-Material für die Effekte.
+
+### Bossfight – Die Spinne (Finale)
+
+Allein, aber **stark und tanky**. **2 Phasen:**
+
+- **Phase 1 – Netz zerstören:** Vor dem eigentlichen Kampf muss man die **Ankerpunkte** angreifen und das **Netz kaputt machen** (herumfliegen, ausweichen).
+- **Pause:** Ist das Netz zerstört, **fällt die Spinne herunter**.
+- **Phase 2 – Angriff:** Am Boden ist die Spinne **angreifbar**. Sporen-Effekte (z. B. Lähmung) helfen.
+- **Finale:** Spinne besiegt → Eier lösen sich → **aus der Luft retten**.
+
+**Ton-Hinweis:** Pixel-Game für eher jüngere Zielgruppe – Kämpfe und der Partner-Tod mild/angedeutet halten, nicht brutal.
 
 **Ende:** Eier gerettet → **Kreislauf schließt sich**: Neue Käfer schlüpfen (Callback zu Akt 1).
 
 ---
 
+## Kampfsystem
+
+- **Ab Akt 2**, nur gegen **Gegner und Bosse** (kein ständiger Kampf, Akt 1 bleibt kampffrei).
+- **Nahkampf:** Ab Akt 2, Waffe vom Partner. Rammen/Stoßen + Flug-Ramme.
+- **Fernkampf (Sporen):** Ab Akt 3, freigeschaltet durch **Larven-Sammlung** aus Akt 2. Verzauberbar mit Pollen beim Feuerwanzen-Laden (Gift, Lähmung, Verlangsamung, Rüstungsbruch, Erblinden). **Munition lädt sich auf**, Ladezeit verbesserbar: **1 min → 30 s → 10 s** pro Ladung.
+- **Gegner-Robustheit:** Gemischt – kleine Gegner sterben mit **1 Treffer**, große (Ameisen, Bosse) haben **Lebenspunkte**.
+
+### Bosse
+- **Ameisenkönigin** (Ende Akt 2): Ameise mit mehr Leben/Schaden + 5 Ameisen als Unterstützung.
+- **Spinne** (Finale Akt 3): allein, stark & tanky, 2 Phasen (Netz zerstören → Spinne fällt → angreifbar).
+- **Raupe** (optionaler, versteckter Wald-Boss): sehr **tanky**, **2 Phasen**. Belohnt Erkundung, kein Pflicht-Kampf.
+
+### Gegner-Übersicht
+- **Fruchtfliege** – schnell, schwirrt umher, unberechenbare Flugbahn. In Akt 1 nur Hindernis (kampffrei), ab Akt 2 bekämpfbar.
+- **Grille** – hüpft unberechenbar, schwer zu treffen. Akt 2 (Feld).
+- **Laus** – schwach, kommt in **Gruppen** (1-Treffer-Gegner). Ab Akt 2.
+- **Zecke** – klein, **klammert sich an / saugt Leben ab** (kleiner Dauerschaden). Akt 3 (Wald).
+- **Ameise** – erster echter Kampfgegner (Akt 2), hat Lebenspunkte.
+
+### Waffen (Nahkampf)
+Man trägt **immer nur eine Waffe** – eine neue **ersetzt die vorige** (kein Wechsel-Inventar).
+
+- **Strohhalm** – Startwaffe (Basis, kein Effekt)
+- **Bienenstachel** – **Lähmung**
+- **Dorn** – **Extra-Schaden**
+- **Pusteblumen-Samen** – **Knockback / Puff** (stößt Gegner zurück, z. B. von Klippen oder aus dem Weg)
+
+---
+
 ## Collectables, Freischaltungen & Leben-System
 
-### Collectables
-- **Pollen** – in **jedem Akt** vorhanden. Durchgängige Sammelwährung, schweben in der Luft (kleine Bewegungs-Puzzles).
-- **Blattläuse** – kommen in **Akt 2 neu dazu**. Doppelnutzen: Jagd (rennen weg) + Sammeln.
+### Collectables & Ressourcen
+- **Pollen** – in **jedem Akt** vorhanden. **Upgrade-Material** (Flugausdauer + Sporen-Verzauberung). Schweben in der Luft (kleine Puzzles).
+- **Honig-Essenz** – Collectable (ab Akt 1). Schaltet **Doppelsprung** und **Extra-Herzen** frei (siehe unten).
+- **Blattläuse / Larven** – ab **Akt 2**. Doppelnutzen: Jagd/Sammeln + **Freischaltung des Fernkampfs** (Sporen) in Akt 3.
 
-### Freischaltungen (mit gesammelten Pollen)
-Man gibt Pollen aus, um Fähigkeiten/Boni freizuschalten:
-- **Doppelsprung**
-- **Längeres Gleiten** (Akt 2)
-- **Längeres / schnelleres Fliegen** (Akt 3)
-- **Mehr Leben** (max. Lebensanzahl erhöhen)
+### Freischaltungen & Upgrades
+
+**Honig-Essenz:**
+- 1. Honig-Essenz → **Doppelsprung**
+- Honig-Essenz 2–7 → je ein **Extra-Herz** (bis zu 6 zusätzliche Herzen)
+
+**Pollen (Bewegung & Kampf):**
+- **Gleiten:** 2 s → 5 s → 10 s
+- **Fliegen:** 1 s → 3 s → 5 s
+- **Sporen:** Ladezeit **1 min → 30 s → 10 s** pro Ladung + **Effekte** (beim Feuerwanzen-Laden, Akt 3)
+
+**Hinweis:** Gleiten (am Teich) und Fliegen (im Unkraut) werden als feste Story-Punkte in Akt 1 freigeschaltet – die Dauer wird danach mit Pollen verbessert.
 
 ### Leben- & Checkpoint-System
+- Man startet mit **3 Leben**.
 - Jeder Akt ist in **Zonen/Abschnitte** unterteilt – z. B. Akt 1: **Gras → Teich/Seerosen → Unkraut/Löwenzahn → Blume**.
-- Scheitert man an einer Passage (z. B. beim See **ins Wasser fallen**), verliert man ein **Leben** und startet am **Beginn der aktuellen Zone** neu – nicht am Akt-Anfang.
-- Sind alle Leben aufgebraucht (z. B. 3), geht es zurück zum letzten großen Checkpoint / Zonenbeginn – **nie komplett von vorn im Akt**.
+- Bei Tod (z. B. beim See **ins Wasser fallen** oder im Kampf) → **Abschnitt von vorne**.
+- **Herz zurück:** nur durch **Feindbesiegen**. In Akt 1 (kampffrei) also nur über **Abschnitt abschließen** oder bewussten Neustart, um mit vollem Leben zu starten.
+- Extra-Herzen aus Honig-Essenz erhöhen die maximale Lebensanzahl.
 
 ---
 
 ## Fallen & Gefahren
 
-Drei Typen für Abwechslung: **statische Fallen** (ausweichen), **Timing-Fallen** (Rhythmus lernen), **bewegliche Gegner** (Muster beobachten).
+Drei Typen für Abwechslung: **statische Fallen** (ausweichen), **Timing-Fallen** (Rhythmus lernen), **bewegliche Gegner** (Muster beobachten, ab Akt 2 bekämpfbar).
 
-### Akt 1 – Garten
-- **Dornen** (Rose, Brombeerstrauch) – Berührung = Schaden [statisch]
-- **Klebriger Nektar / Harztropfen** – bleibst kurz stecken, langsamer [statisch]
-- **Fleischfressende Pflanze** (Venusfliegenfalle) – schnappt zu [Timing]
-- **Herabfallende Tautropfen** – wegducken [Timing]
-- **Ameisen** – Patrouille, beißen bei Kontakt [beweglich]
+### Akt 1 – Garten (nur ausweichen)
+- **Dornen** (Rose, Brombeerstrauch) [statisch]
+- **Klebriger Nektar / Harztropfen** – langsamer [statisch]
+- **Fleischfressende Pflanze** (Venusfliegenfalle) [Timing]
+- **Herabfallende Tautropfen** [Timing]
+- **Ameisen** – Patrouille, beißen (noch nicht bekämpfbar → ausweichen) [beweglich]
+- **Fruchtfliege** – schwirrt umher, nur ausweichen (kampffrei) [beweglich]
 - **Der Teich** – reinfallen = Tod
 
 ### Akt 2 – Feld
 - **Der Mäher** – große Gefahr / zentrales Set-Piece [beweglich]
 - **Traktor-Reifen / Fußabdrücke** – zerquetscht werden [Timing]
-- **Kleine Spinnweben** – hängenbleiben, losreißen [statisch]
-- **Pestizid-/Sprühnebel-Zonen** – Giftwolken, nicht durchgehen [statisch/Zone]
+- **Kleine Spinnweben** – hängenbleiben [statisch]
+- **Pestizid-/Sprühnebel-Zonen** – Giftwolken [statisch/Zone]
 - **Vögel** – picken von oben (Schatten als Warnung) [beweglich]
+- **Ameise** – erster echter Kampfgegner [beweglich, bekämpfbar]
+- **Grille** – hüpft unberechenbar [beweglich, bekämpfbar]
+- **Laus** – schwache Gruppengegner [beweglich, bekämpfbar]
 
 ### Akt 3 – Wald
-- **Große Spinnweben** – hängenbleiben, passt zum Boss-Thema [statisch]
+- **Große Spinnweben** – hängenbleiben [statisch]
 - **Herabfallende Zapfen / Äste** [Timing]
-- **Pilzsporen** – Giftwolken beim Berühren [statisch/Zone]
-- **Klebriges Baumharz** – verlangsamt oder hält fest [statisch]
-- **Andere Raubinsekten** (z. B. Gottesanbeterin) – Mini-Gefahr [beweglich]
+- **Pilzsporen** – Giftwolken [statisch/Zone]
+- **Klebriges Baumharz** – verlangsamt / hält fest [statisch]
+- **Andere Raubinsekten** (z. B. Gottesanbeterin) [beweglich, bekämpfbar]
+- **Zecke** – klammert sich an, saugt Leben ab [beweglich, bekämpfbar]
 
 ---
 
 ## Progression im Überblick
 
-| Akt | Ort | Lebensphase | Fähigkeit | Gameplay-Loop | Emotionaler Kern |
-|-----|-----|-------------|-----------|---------------|------------------|
-| 1 | Garten | Frisch geschlüpft | Laufen, Springen | Jump'n'Run (Aufstieg zum Partner) | Anfang, Neugier |
-| 2 | Feld | Familie | Gleiten (Batman-Stil) | Jagen/Sammeln + Suche | Glück → Verlust |
-| 3 | Wald | Kampf | Echtes Fliegen (durch Tod freigeschaltet) | Spurensuche + Bossfight | Rache, Rettung, Neuanfang |
+| Akt | Ort | Lebensphase | Bewegung | Kampf | Gameplay-Loop | Emotionaler Kern |
+|-----|-----|-------------|----------|-------|---------------|------------------|
+| 1 | Garten | Frisch geschlüpft | Laufen/Springen → Gleiten → Fliegen (kurz) | — | Jump'n'Run (Aufstieg zum Partner) | Anfang, Neugier |
+| 2 | Feld | Familie | Fliegen (Ausdauer wächst) | Nahkampf (Waffe vom Partner) | Jagen/Sammeln + Kampf + Suche | Glück → Verlust |
+| 3 | Wald | Kampf | Fliegen (volle Ausdauer) | Nahkampf + Fernkampf (Sporen) | Spurensuche + Bossfight | Rache, Rettung, Neuanfang |
 
 ---
 
 ## Offene Design-Fragen
 
-- **Akt 3 Spurensuche:** Was genau ist das Gameplay beim Suchen nach Spuren? (Favorit: sichtbare Fährte)
-- **Leben-Auffüllung:** Wie füllen sich Leben wieder auf? (Pro Zone automatisch, durch Pollen, oder eigenes Collectable?)
-- **Blattlaus-Jagd (Akt 2):** Verfolgung UND Collectable, oder nur eins? Wie viele braucht man?
-- **Boss-Details:** Wie viele Fäden/Ankerpunkte muss man lösen? Phasen?
-- **Explizitheit des sterbenden Partners:** Wie drastisch inszenieren (Zielgruppe)?
-- **Gleiten vs. Fliegen:** Klarer Unterschied in Steuerung/Gefühl, damit Akt 3 sich als echte Steigerung anfühlt.
+- **Akt 3 Spurensuche:** Was genau ist das Gameplay beim Suchen nach Spuren? (noch offen – Favorit: sichtbare Fährte von Baum zu Baum)
+- **Waffen-Logik:** Ersetzen sich die Waffen als klare Stärke-Reihenfolge (spätere besser) oder als gleichwertige Werkzeuge mit unterschiedlichen Effekten?
+- **Zielgruppe/Alter genau festlegen:** beeinflusst, wie mild Partner-Tod und Kämpfe inszeniert werden.
