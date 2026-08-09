@@ -1,1 +1,149 @@
-plan
+
+# Game-Design-Konzept: Marienkäfer-Lebenszyklus
+
+Ein 2D-Plattformer über den Lebenszyklus eines Marienkäfers – von der Geburt über Familie und Verlust bis zur Rettung der nächsten Generation.
+
+---
+
+## Grundidee
+
+Der Spieler begleitet einen Marienkäfer durch sein Leben. Jeder Akt steht für eine Lebensphase, führt eine neue Fortbewegungs-Fähigkeit ein (Laufen → Gleiten → Fliegen) und erzählt eine emotionale Geschichte über Wachstum, Familie und Verlust. Der Kreislauf schließt sich am Ende: Aus den geretteten Eiern schlüpfen neue Käfer – wie zu Beginn des Spiels.
+
+**Thematischer Kern:** Leben, Verlust und das Weiterreichen des Lebens an die nächste Generation.
+
+**Fähigkeiten-Progression:** Akt 1 nur Laufen/Springen → Akt 2 Gleiten (Batman-Stil, kein echtes Fliegen) → Akt 3 echtes/freies Fliegen, freigeschaltet durch den Tod des Partners ("beflügelt durch den Tod").
+
+---
+
+## Akt 1 – Der Garten (Schlüpfen bis Paarung)
+
+**Lebensphase:** Geburt / frisch geschlüpft
+**Gameplay-Loop:** Klassisches Jump'n'Run
+
+- Start: Du schlüpfst bei den **Eiern**.
+- Level führt von den **Gräsern** Richtung eines **Teichs mit Seerosen** (über die Seerosen springen).
+- Weiter zu großen Pflanzen: **Löwenzahn, Gänseblümchen** und anderen Pflanzen – nach oben kletternd/springend.
+- Am Ende hoch zu einer **schicken Blume**, wo er den **Partner** findet.
+- Ende: Beide **fliegen los** (Cutscene + neue Fähigkeit angedeutet) → Übergang zu Akt 2.
+
+**Fähigkeit:** Laufen, Klettern, Springen. Noch kein Fliegen.
+
+**Collectable – Schwebender Pollen:** Pollen treiben/schweben in der Luft. Man muss den richtigen Moment zum Springen/Klettern finden, um sie zu erreichen – kleine Bewegungs-Puzzles, die sich natürlich in den Aufstieg einfügen.
+
+**Struktur:** Linearer Aufstieg durch eine Gartenwelt, jede Pflanzenzone eine kleine Plattform-Herausforderung.
+
+---
+
+## Akt 2 – Das Feld (Familie & Verlust)
+
+**Lebensphase:** Erwachsen / Familie
+**Gameplay-Loop:** Jagen / Sammeln + Suche
+
+- Zu Beginn hat das Paar bereits die **Eier gelegt**.
+- **Jagd nach Blattläusen** und anderer Beute: Sie **rennen weg** (Verfolgung) oder funktionieren als **Collectables**.
+- Rückkehr zum Nest: **Familie ist weg** (das Feld wurde gemäht).
+- Der Käfer geht auf die **Suche**.
+- **Finale des Akts:** Am **Rande des Feldes** findet er den **sterbenden Partner**, der ihm sagt, dass die **Eier im Wald** sind → Übergang zu Akt 3.
+
+**Fähigkeit:** **Gleiten** (wie Batman mit dem Cape – kein echtes Fliegen: man verliert langsam an Höhe, kann Sprünge verlängern und sanft heruntergleiten, nur vorwärts/abwärts).
+
+**Ton-Hinweis:** Der sterbende Partner ist der emotionale Wendepunkt. Je nach Zielgruppe eher angedeutet als drastisch inszenieren.
+
+---
+
+## Akt 3 – Der Wald (Suche & Spinnen-Boss)
+
+**Lebensphase:** Kampf um die nächste Generation
+**Gameplay-Loop:** Erkunden / Spurensuche → Bossfight
+
+- Im Wald kann man **richtig fliegen** (freies Fliegen in alle Richtungen) – freigeschaltet durch den **Tod des Partners** ("beflügelt durch den Tod"). Akt 2 war nur Gleiten.
+- Man sucht **bei Bäumen und anderen Objekten nach Spuren**.
+- Man **findet eine Spur**, die zu einem **Spinnennetz** mit den Eiern darin führt.
+- **Bossfight:** Das **Netz auflösen**, indem man **darum herumfliegt** (Ankerpunkte/Fäden lösen), während die **Spinne es verteidigt** – aufpassen und ausweichen.
+- Ist das Netz gelöst: **Eier aus der Luft retten** (fliegend auffangen/bergen).
+
+**Fähigkeit:** Echtes Fliegen als Kern-Mechanik (freie Bewegung in der Luft).
+
+**Offene Frage – Spurensuche-Gameplay:** Was genau macht man beim Suchen nach Spuren? Ideen zum Entscheiden:
+- Fährten-Verfolgung (leuchtende Fäden/Rückstände von Objekt zu Objekt) – Favorit, passt zum Fliegen
+- Umgebung absuchen / interagieren (Objekte untersuchen, Hinweise freilegen)
+- Geräusch- oder Geruchsspur (näher = stärkeres Signal)
+- Kleine Umgebungsrätsel, die den Weg zum Netz freigeben
+
+### Bossfight – Die Spinne
+
+- **Ziel:** Das Netz auflösen (nicht die Spinne direkt besiegen).
+- **Mechanik:** Um das Netz herumfliegen, Fäden/Ankerpunkte nacheinander lösen.
+- **Gegenwehr:** Die Spinne verteidigt das Netz – ihren Angriffen ausweichen, Timing.
+- **Finale:** Netz gelöst → Eier fallen/lösen sich → **aus der Luft retten**.
+
+**Ende:** Eier gerettet → **Kreislauf schließt sich**: Neue Käfer schlüpfen (Callback zu Akt 1).
+
+---
+
+## Collectables, Freischaltungen & Leben-System
+
+### Collectables
+- **Pollen** – in **jedem Akt** vorhanden. Durchgängige Sammelwährung, schweben in der Luft (kleine Bewegungs-Puzzles).
+- **Blattläuse** – kommen in **Akt 2 neu dazu**. Doppelnutzen: Jagd (rennen weg) + Sammeln.
+
+### Freischaltungen (mit gesammelten Pollen)
+Man gibt Pollen aus, um Fähigkeiten/Boni freizuschalten:
+- **Doppelsprung**
+- **Längeres Gleiten** (Akt 2)
+- **Längeres / schnelleres Fliegen** (Akt 3)
+- **Mehr Leben** (max. Lebensanzahl erhöhen)
+
+### Leben- & Checkpoint-System
+- Jeder Akt ist in **Zonen/Abschnitte** unterteilt – z. B. Akt 1: **Gras → Teich/Seerosen → Unkraut/Löwenzahn → Blume**.
+- Scheitert man an einer Passage (z. B. beim See **ins Wasser fallen**), verliert man ein **Leben** und startet am **Beginn der aktuellen Zone** neu – nicht am Akt-Anfang.
+- Sind alle Leben aufgebraucht (z. B. 3), geht es zurück zum letzten großen Checkpoint / Zonenbeginn – **nie komplett von vorn im Akt**.
+
+---
+
+## Fallen & Gefahren
+
+Drei Typen für Abwechslung: **statische Fallen** (ausweichen), **Timing-Fallen** (Rhythmus lernen), **bewegliche Gegner** (Muster beobachten).
+
+### Akt 1 – Garten
+- **Dornen** (Rose, Brombeerstrauch) – Berührung = Schaden [statisch]
+- **Klebriger Nektar / Harztropfen** – bleibst kurz stecken, langsamer [statisch]
+- **Fleischfressende Pflanze** (Venusfliegenfalle) – schnappt zu [Timing]
+- **Herabfallende Tautropfen** – wegducken [Timing]
+- **Ameisen** – Patrouille, beißen bei Kontakt [beweglich]
+- **Der Teich** – reinfallen = Tod
+
+### Akt 2 – Feld
+- **Der Mäher** – große Gefahr / zentrales Set-Piece [beweglich]
+- **Traktor-Reifen / Fußabdrücke** – zerquetscht werden [Timing]
+- **Kleine Spinnweben** – hängenbleiben, losreißen [statisch]
+- **Pestizid-/Sprühnebel-Zonen** – Giftwolken, nicht durchgehen [statisch/Zone]
+- **Vögel** – picken von oben (Schatten als Warnung) [beweglich]
+
+### Akt 3 – Wald
+- **Große Spinnweben** – hängenbleiben, passt zum Boss-Thema [statisch]
+- **Herabfallende Zapfen / Äste** [Timing]
+- **Pilzsporen** – Giftwolken beim Berühren [statisch/Zone]
+- **Klebriges Baumharz** – verlangsamt oder hält fest [statisch]
+- **Andere Raubinsekten** (z. B. Gottesanbeterin) – Mini-Gefahr [beweglich]
+
+---
+
+## Progression im Überblick
+
+| Akt | Ort | Lebensphase | Fähigkeit | Gameplay-Loop | Emotionaler Kern |
+|-----|-----|-------------|-----------|---------------|------------------|
+| 1 | Garten | Frisch geschlüpft | Laufen, Springen | Jump'n'Run (Aufstieg zum Partner) | Anfang, Neugier |
+| 2 | Feld | Familie | Gleiten (Batman-Stil) | Jagen/Sammeln + Suche | Glück → Verlust |
+| 3 | Wald | Kampf | Echtes Fliegen (durch Tod freigeschaltet) | Spurensuche + Bossfight | Rache, Rettung, Neuanfang |
+
+---
+
+## Offene Design-Fragen
+
+- **Akt 3 Spurensuche:** Was genau ist das Gameplay beim Suchen nach Spuren? (Favorit: sichtbare Fährte)
+- **Leben-Auffüllung:** Wie füllen sich Leben wieder auf? (Pro Zone automatisch, durch Pollen, oder eigenes Collectable?)
+- **Blattlaus-Jagd (Akt 2):** Verfolgung UND Collectable, oder nur eins? Wie viele braucht man?
+- **Boss-Details:** Wie viele Fäden/Ankerpunkte muss man lösen? Phasen?
+- **Explizitheit des sterbenden Partners:** Wie drastisch inszenieren (Zielgruppe)?
+- **Gleiten vs. Fliegen:** Klarer Unterschied in Steuerung/Gefühl, damit Akt 3 sich als echte Steigerung anfühlt.
