@@ -1,3 +1,15 @@
-#hallo meine liebe clara
-#habe dich lieb <3
-#ich dich auch ganz ganz dolle <3
+import pgzrun
+import pygame
+
+WIDTH = 1400
+HEIGHT = 700
+
+background = pygame.image.load("images/background.png")
+background = pygame.transform.scale(background, (WIDTH, HEIGHT))
+
+
+def draw():
+    screen.blit(background, (0, 0))
+
+
+pgzrun.go()
